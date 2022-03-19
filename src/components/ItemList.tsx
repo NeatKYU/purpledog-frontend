@@ -4,6 +4,7 @@ import { Item } from './Item';
 import { useSetRecoilState } from 'recoil';
 import { idState } from '../atom/listAtom';
 import { useList } from '../hooks/useList';
+import { Loading } from './Loading';
 
 interface ItemListProps {
 
@@ -15,6 +16,8 @@ export const ItemList = (props: ItemListProps) => {
 	const { list, error, isLoading } = useList('topstories');
 
 	return (
+		<>
+		{ isLoading && <LoadingWarpper><Loading/></LoadingWarpper> }
 		<Container>
 			{list && 
 				list.map((item:number) => (
@@ -22,6 +25,7 @@ export const ItemList = (props: ItemListProps) => {
 				))
 			}
 		</Container>
+		</>
 	)
 }
 
@@ -31,7 +35,16 @@ const Container = styled.div`
 	height: auto;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	flex-direction: column;
 	gap: 15px;
 
+`
+
+const LoadingWarpper = styled.div`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
