@@ -3,14 +3,15 @@ import styled from 'styled-components';
 
 interface ItemProps {
 	id: number,
+	onClick: () => void;
 }
 
 export const Item = (props: ItemProps) => {
 
-	const { id } = props;
+	const { id, onClick } = props;
 
 	return (
-		<Container>
+		<Container onClick={onClick}>
 			{id}
 		</Container>
 	)

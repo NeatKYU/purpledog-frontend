@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Item } from './Item';
+import { useSetRecoilState } from 'recoil';
+import { idState } from '../atom/listAtom';
+import { useList } from '../hooks/useList';
 
 interface ItemListProps {
 
@@ -8,13 +11,16 @@ interface ItemListProps {
 
 export const ItemList = (props: ItemListProps) => {
 
+	const setId = useSetRecoilState(idState);
+	const { list, error, isLoading } = useList('topstories');
+
 	return (
 		<Container>
-			<Item id={123124}/>
-			<Item id={123124}/>
-			<Item id={123124}/>
-			<Item id={123124}/>
-			<Item id={123124}/>
+			{list && 
+				list.map((item:number) => (
+					<Item id={item} onClick={() => setId(item)}/>
+				))
+			}
 		</Container>
 	)
 }
