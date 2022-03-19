@@ -19,15 +19,57 @@ export const ItemDetail = (props: ItemDetailProps) => {
 			<div className='ab-center'>
 				{ isLoading && currentId !== 0 && <Loading/> }
 			</div>
-			{ detail && detail.title }
+			<InfoContainer>
+				title
+				<div className='content'>
+					{ detail && detail.title }
+				</div>
+			</InfoContainer>
+			<InfoContainer>
+				score
+				<div className='content'>
+					{ detail && detail.score}
+				</div>
+			</InfoContainer>
+			<InfoContainer>
+				url
+				<div className='content'>
+					<a href={ detail && detail.url}>{detail && detail.url}</a>
+				</div>
+			</InfoContainer>
+			<InfoContainer>
+				type
+				<div className='content'>
+					{ detail && detail.type}
+				</div>
+			</InfoContainer>
+			{
+				detail?.kids && 
+				<InfoContainer>
+					kids
+					<div className='content'>
+						{ detail && detail.kids?.map((item,index) => (
+							<span key={index}>{item}, </span> 
+						))}
+					</div>
+				</InfoContainer>
+			}
+			<InfoContainer>
+				by
+				<div className='content'>
+					{ detail && detail.by}
+				</div>
+			</InfoContainer>
 		</Container>
 	)
 }
 
 const Container = styled.div`
 	width: 25rem;
-	height: 31.25rem;
+	min-height: 31.25rem;
+	height: auto;
 	display: flex;
+	flex-direction: column;
 	margin: 0 auto;
 	padding: 40px;
 	border-radius: 10px;
@@ -42,7 +84,6 @@ const Container = styled.div`
 	@keyframes leftIn {
 		from { 
 			transform: translate3d(-100%, 0, 0);
-			height: 0;
 			opacity: 0;
 		}
 		to { 
@@ -63,7 +104,18 @@ const Container = styled.div`
 	}
 `
 
-// const TitleInfo = styled.div`
-// 	width: 100%;
+const InfoContainer = styled.div`
+	width: 100%;
+	height: auto;
+	font-size: 13px;
+	margin-bottom: 10px;
+	color: #5c5c5c;
 
-// `
+	.content {
+		padding-left: 5px;
+		font-size: 20px;
+		margin-top: 3px;
+		overflow-wrap: anywhere;
+		color: black;
+	}
+`

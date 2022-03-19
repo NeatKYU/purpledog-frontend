@@ -20,8 +20,8 @@ export const ItemList = (props: ItemListProps) => {
 		{ isLoading && <LoadingWarpper><Loading/></LoadingWarpper> }
 		<Container>
 			{list && 
-				list.map((item:number) => (
-					<Item id={item} onClick={() => setId(item)}/>
+				list.map((item:number, index) => (
+					<Item key={index} id={item} onClick={() => setId(item)}/>
 				))
 			}
 		</Container>
