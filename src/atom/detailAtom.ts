@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
+import { detailModel } from '../model/detail.model';
 
-const detailInitialState = {
+const detailInitialState:detailModel = {
 	by: '',
 	descendants: 0,
 	id: 0,

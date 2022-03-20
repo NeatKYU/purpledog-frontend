@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useList } from '../hooks/useList';
+import { useDetail } from '../hooks/useDetail';
 
 // components
+import { idState, cartegoryState } from '../atom/listAtom';
 import { ItemList } from '../components/item/ItemList';
 import { ItemDetail } from '../components/item/ItemDetail';
 
@@ -11,13 +15,29 @@ interface ListPageProps {
 
 function ListPage(){
 
+	const setId = useSetRecoilState(idState);
+	const menu = useRecoilValue(cartegoryState);
+	const currentId = useRecoilValue(idState);
+	const { detail, detailError, detailIsLoading } = useDetail(currentId);
+	const { list, listError, listIsLoading } = useList(menu);
+
 	return (
 		<Container>
 			<LeftSide>
-				<ItemList/>
+				<ItemList 
+					list={list} 
+					error={listError} 
+					isLoading={listIsLoading} 
+					setId={setId}
+				/>
 			</LeftSide>
 			<RightSide>
-				<ItemDetail/>
+				<ItemDetail 
+					detail={detail}
+					error={detailError}
+					isLoading={detailIsLoading}
+					currentId={currentId}
+				/>
 			</RightSide>
 		</Container>
 	)
@@ -39,7 +59,11 @@ const Container = styled.div`
 	}
 	@media (max-width: 720px) {
 		width: 31.25rem;
-		flex-direction: column-reverse;
+		flex-direction: column;
+	}
+	@media (max-width: 480px) {
+		width: 23.4375rem;
+		flex-direction: column;
 	}
 `
 

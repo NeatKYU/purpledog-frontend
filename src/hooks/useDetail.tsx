@@ -19,7 +19,7 @@ export const useDetail = (id: number) => {
 
 	return {
 		detail: detail,
-		error: error,
-		isLoading: !error && !data,
+		detailError: error,
+		detailIsLoading: !error && !data,
 	}
 }

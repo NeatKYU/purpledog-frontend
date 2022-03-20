@@ -3,16 +3,9 @@ import GlobalStyle from './GlobalStyle';
 import ListPage from './pages/ListPage';
 import { Navibar } from './components/nav/Navibar';
 import Purpledog from './assets/purpledog.png';
+import { menuList } from './data/menuList';
 
 function App() {
-
-  const menuList = [
-    'top',
-    'new',
-    'ask',
-    'show',
-    'job'
-  ]
 
   return (
     <div>

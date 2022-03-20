@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { useRecoilValue } from 'recoil';
-
-import { useDetail } from '../../hooks/useDetail';
-import { idState } from '../../atom/listAtom';
 import { Loading } from '../Loading';
+import { detailModel } from '../../model/detail.model';
 
 interface ItemDetailProps {
-
+	detail: detailModel,
+	error: boolean,
+	isLoading: boolean,
+	currentId: number,
 }
 
 const Info = (title: string, info: any) => {
@@ -23,8 +23,7 @@ const Info = (title: string, info: any) => {
 
 export const ItemDetail = (props: ItemDetailProps) => {
 
-	const currentId = useRecoilValue(idState);
-	const { detail, error, isLoading } = useDetail(currentId);
+	const { detail, error, isLoading, currentId} = props;
 
 	return (
 		<Container key={currentId}>
@@ -87,7 +86,7 @@ const InfoContainer = styled.div`
 	width: 100%;
 	height: auto;
 	font-size: 13px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	color: #5c5c5c;
 
 	.content {

@@ -19,7 +19,7 @@ export const useList = (cartegory: string) => {
 
 	return {
 		list: list,
-		error: error,
-		isLoading: !error && !data,
+		listError: error,
+		listIsLoading: !error && !data,
 	}
 }
