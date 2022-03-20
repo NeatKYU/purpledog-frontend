@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import { cartegoryState } from '../../atom/listAtom';
 import { Menu } from './Menu';
@@ -14,7 +14,7 @@ export const Navibar = (props: NavibarProps) => {
 
 	const { menuList, isLogo, logoImage } = props;
 
-	const setCartergory = useSetRecoilState(cartegoryState);
+	const [cartegory, setCartergory] = useRecoilState(cartegoryState);
 
 	return (
 		<Container className='flex-align-center'>
@@ -24,7 +24,8 @@ export const Navibar = (props: NavibarProps) => {
 				</div>
 			}
 			{ menuList && menuList.map((item) => (
-					<Menu 
+					<Menu
+						active={item+'stories' === cartegory}
 						title={item} 
 						sw={'60px'} 
 						onClick={() => setCartergory(item+'stories')}
