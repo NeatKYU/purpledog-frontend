@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import useSWR from 'swr';
 import { listState } from '../atom/listAtom';
-import { fetcher } from '../util/fetcher';
+import { fetcherSort } from '../util/fetcher';
 
 export const useList = (cartegory: string) => {
 
 	const [list, setList] = useRecoilState(listState);
 	const { data, error } = useSWR(
 		`${process.env.REACT_APP_BASE_URL}/v0/${cartegory}.json?print=pretty`, 
-		fetcher,
+		fetcherSort,
 		{ refreshInterval: 3600 * 1000 }
 	);
 

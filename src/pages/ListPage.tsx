@@ -40,7 +40,8 @@ const LeftSide = styled.div`
 	padding: 20px;
 	overflow-y: scroll;
 	z-index: 10;
-	
+	margin-top: 10px;
+	margin-bottom: 10px;
 `
 
 const RightSide = styled.div`
