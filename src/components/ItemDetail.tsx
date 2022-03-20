@@ -9,6 +9,18 @@ interface ItemDetailProps {
 
 }
 
+const Info = (title: string, info: any) => {
+	
+	return (
+		<InfoContainer>
+			{title}
+			<div className='content'>
+				{ info }
+			</div>
+		</InfoContainer>
+	)
+}
+
 export const ItemDetail = (props: ItemDetailProps) => {
 
 	const currentId = useRecoilValue(idState);
@@ -19,47 +31,13 @@ export const ItemDetail = (props: ItemDetailProps) => {
 			<div className='ab-center'>
 				{ isLoading && currentId !== 0 && <Loading/> }
 			</div>
-			<InfoContainer>
-				title
-				<div className='content'>
-					{ detail && detail.title }
-				</div>
-			</InfoContainer>
-			<InfoContainer>
-				score
-				<div className='content'>
-					{ detail && detail.score}
-				</div>
-			</InfoContainer>
-			<InfoContainer>
-				url
-				<div className='content'>
-					<a href={ detail && detail.url}>{detail && detail.url}</a>
-				</div>
-			</InfoContainer>
-			<InfoContainer>
-				type
-				<div className='content'>
-					{ detail && detail.type}
-				</div>
-			</InfoContainer>
-			{
-				detail?.kids && 
-				<InfoContainer>
-					kids
-					<div className='content'>
-						{ detail && detail.kids?.map((item,index) => (
-							<span key={index}>{item}, </span> 
-						))}
-					</div>
-				</InfoContainer>
-			}
-			<InfoContainer>
-				by
-				<div className='content'>
-					{ detail && detail.by}
-				</div>
-			</InfoContainer>
+			{detail && Info('제목', detail.title)}
+			{detail && Info('점수', detail.score)}
+			{detail && Info('url', <a href={ detail && detail.url}>{detail && detail.url}</a>)}
+			{detail && Info('유형', detail.type)}
+			{detail && Info('댓글 수', detail.descendants)}
+			{detail && Info('작성자', detail.by)}
+			{detail && Info('작성 시간', new Date(detail.time * 1000).toLocaleDateString('kr'))}
 		</Container>
 	)
 }
