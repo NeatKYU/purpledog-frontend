@@ -49,7 +49,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	padding: 40px;
+	padding: 2.5rem;
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	background-color: #fff;

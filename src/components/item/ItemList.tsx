@@ -38,8 +38,8 @@ const Container = styled.div`
 	gap: 15px;
 
 	@media (max-width: 720px) {
-		width: 100px;
-		height: 250px;
+		width: 6.25rem;
+		height: 15.625rem;
 		flex-wrap: wrap;
 	}
 

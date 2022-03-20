@@ -70,7 +70,7 @@ const Container = styled.div`
 const LeftSide = styled.div`
 	width: 50%;
 	height: 90vh;
-	padding: 20px;
+	padding: 1.5rem;
 	overflow-y: scroll;
 	z-index: 10;
 	margin-top: 10px;
@@ -79,13 +79,15 @@ const LeftSide = styled.div`
 	@media (max-width: 720px) {
 		width: 100%;
 		height: 20rem;
+		overflow-x: scroll;
+		overflow-y: hidden;
 	}
 `
 
 const RightSide = styled.div`
 	width: 50%;
 	height: 90vh;
-	padding: 20px;
+	padding: 1.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;

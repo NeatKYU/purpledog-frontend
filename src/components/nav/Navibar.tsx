@@ -47,7 +47,7 @@ const Container = styled.div`
 	border-radius: 10px;
 
 	.logo {
-		width: 60px;
+		width: 3.75rem;
 		height: 100%;
 		display: flex;
 		align-items: stretch;
