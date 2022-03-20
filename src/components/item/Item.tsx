@@ -27,6 +27,10 @@ const Container = styled.div`
 	line-height: 3.125rem;
 	cursor: pointer;
 
+	@media (max-width: 720px) {
+		width: 6.25rem;
+	}
+
 	&:hover {
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		font-size: 20px;

@@ -30,7 +30,8 @@ const Container = styled.div<{w:string}>`
 	color: #b6b6b6;
 
 	.active {
-		color: black; 
+		color: black;
+		border-bottom: 2px solid black;
 	}
 
 	&:hover {

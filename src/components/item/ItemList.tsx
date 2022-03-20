@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
 
 import { Item } from './Item';
-import { idState, cartegoryState } from '../../atom/listAtom';
-import { useList } from '../../hooks/useList';
 import { Loading } from '../Loading';
 
 interface ItemListProps {
-
+	list: Array<number>,
+	error: boolean,
+	isLoading: boolean,
+	setId: any,
 }
 
 export const ItemList = (props: ItemListProps) => {
 
-	const setId = useSetRecoilState(idState);
-	const menu = useRecoilValue(cartegoryState);
-	const { list, error, isLoading } = useList(menu);
+	const { list, error, isLoading, setId } = props;
 
 	return (
 		<>
