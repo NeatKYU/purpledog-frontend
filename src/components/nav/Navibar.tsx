@@ -59,5 +59,4 @@ const Container = styled.div`
 	}
 	@media (max-width: 480px) {
 		width: 23.4375rem;
-	}
 `
