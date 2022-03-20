@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Proptypes from 'prop-types';
-import { useDetail } from '../hooks/useDetail';
 import { useRecoilValue } from 'recoil';
-import { idState } from '../atom/listAtom';
-import { Loading } from './Loading';
+
+import { useDetail } from '../../hooks/useDetail';
+import { idState } from '../../atom/listAtom';
+import { Loading } from '../Loading';
 
 interface ItemDetailProps {
 
@@ -30,6 +30,7 @@ export const ItemDetail = (props: ItemDetailProps) => {
 		<Container key={currentId}>
 			<div className='ab-center'>
 				{ isLoading && currentId !== 0 && <Loading/> }
+				{ error && '상세 내용 로딩에 실패하였습니다.'}
 			</div>
 			{detail && Info('제목', detail.title)}
 			{detail && Info('점수', detail.score)}

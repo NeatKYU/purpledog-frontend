@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+
 import { Item } from './Item';
-import { useSetRecoilState } from 'recoil';
-import { idState } from '../atom/listAtom';
-import { useList } from '../hooks/useList';
-import { Loading } from './Loading';
+import { idState, cartegoryState } from '../../atom/listAtom';
+import { useList } from '../../hooks/useList';
+import { Loading } from '../Loading';
 
 interface ItemListProps {
 
@@ -13,11 +14,13 @@ interface ItemListProps {
 export const ItemList = (props: ItemListProps) => {
 
 	const setId = useSetRecoilState(idState);
-	const { list, error, isLoading } = useList('topstories');
+	const menu = useRecoilValue(cartegoryState);
+	const { list, error, isLoading } = useList(menu);
 
 	return (
 		<>
 		{ isLoading && <LoadingWarpper><Loading/></LoadingWarpper> }
+		{ error && '리스트 데이터 로딩에 실패했습니다.'}
 		<Container>
 			{list && 
 				list.map((item:number, index) => (

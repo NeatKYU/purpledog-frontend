@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import { ItemList } from '../components/ItemList';
-import { ItemDetail } from '../components/ItemDetail';
+import { ItemList } from '../components/item/ItemList';
+import { ItemDetail } from '../components/item/ItemDetail';
 
 interface ListPageProps {
 
@@ -30,23 +30,24 @@ const Container = styled.div`
 	height: auto;
 	margin: 0 auto;
 	display: flex;
+	background-color: #e4d8f9;
+	border-radius: 10px;
 `
 
 const LeftSide = styled.div`
 	width: 50%;
-	height: 100vh;
+	height: 90vh;
 	padding: 20px;
-	background-color: lightcyan;
 	overflow-y: scroll;
 	z-index: 10;
+	
 `
 
 const RightSide = styled.div`
 	width: 50%;
-	height: 100vh;
+	height: 90vh;
 	padding: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: lightcoral;
 `
