@@ -36,7 +36,7 @@ export const Navibar = (props: NavibarProps) => {
 }
 
 const Container = styled.div`
-	width: 1000px;
+	width: 62.5rem;
 	height: 3.75rem;
 	margin: 0 auto;
 	gap: 10px;
@@ -51,5 +51,9 @@ const Container = styled.div`
 		display: flex;
 		align-items: stretch;
 		margin-right: 15px;
+	}
+
+	@media (max-width: 1000px) {
+		width: 100%;
 	}
 `

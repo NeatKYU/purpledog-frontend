@@ -30,8 +30,17 @@ const Container = styled.div`
 	height: auto;
 	margin: 0 auto;
 	display: flex;
+	flex-direction: row;
 	background-color: #e4d8f9;
 	border-radius: 10px;
+
+	@media (max-width: 1000px) {
+		width: 45rem;
+	}
+	@media (max-width: 720px) {
+		width: 31.25rem;
+		flex-direction: column-reverse;
+	}
 `
 
 const LeftSide = styled.div`
@@ -42,6 +51,11 @@ const LeftSide = styled.div`
 	z-index: 10;
 	margin-top: 10px;
 	margin-bottom: 10px;
+
+	@media (max-width: 720px) {
+		width: 100%;
+		height: 20rem;
+	}
 `
 
 const RightSide = styled.div`
@@ -51,4 +65,9 @@ const RightSide = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+	@media (max-width: 720px) {
+		width: 100%;
+		height: auto;
+	}
 `
