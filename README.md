@@ -57,3 +57,7 @@ src/
     └── fetcher.tsx
 ```
 
+## 주요화면
+![모바일](https://user-images.githubusercontent.com/22316798/159198824-56dc5824-7753-411c-8aa5-cef0e75c3d8e.gif)
+![데스크탑](https://user-images.githubusercontent.com/22316798/159198849-df6ef408-2ff6-4916-a30a-ea7a1d737e88.gif)
+
