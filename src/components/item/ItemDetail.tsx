@@ -1,12 +1,15 @@
 import styled from 'styled-components';
-import { Loading } from '../Loading';
+import { Loading } from '../common/Loading';
 import { detailModel } from '../../model/detail.model';
+import { CloseButton } from '../common/CloseButton';
 
 interface ItemDetailProps {
 	detail: detailModel,
 	error: boolean,
 	isLoading: boolean,
 	currentId: number,
+	isButton: boolean,
+	handleButton: () => void,
 }
 
 const Info = (title: string, info: any) => {
@@ -23,7 +26,12 @@ const Info = (title: string, info: any) => {
 
 export const ItemDetail = (props: ItemDetailProps) => {
 
-	const { detail, error, isLoading, currentId} = props;
+	const { 
+		detail, error, isLoading, 
+		currentId, 
+		isButton,
+		handleButton,
+	} = props;
 
 	return (
 		<Container key={currentId}>
@@ -31,6 +39,11 @@ export const ItemDetail = (props: ItemDetailProps) => {
 				{ isLoading && currentId !== 0 && <Loading/> }
 				{ error && '상세 내용 로딩에 실패하였습니다.'}
 			</div>
+			{ isButton && 
+				<ButtonWrapper>
+					<CloseButton onClick={handleButton}/>
+				</ButtonWrapper>
+			}
 			{detail && Info('제목', detail.title)}
 			{detail && Info('점수', detail.score)}
 			{detail && Info('url', <a href={ detail && detail.url}>{detail && detail.url}</a>)}
@@ -97,4 +110,11 @@ const InfoContainer = styled.div`
 		overflow-wrap: anywhere;
 		color: black;
 	}
+`
+
+const ButtonWrapper = styled.div`
+	width: 2rem;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 `

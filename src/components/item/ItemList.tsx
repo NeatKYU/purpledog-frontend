@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Item } from './Item';
-import { Loading } from '../Loading';
+import { Loading } from '../common/Loading';
 
 interface ItemListProps {
 	list: Array<number>,
@@ -37,11 +37,11 @@ const Container = styled.div`
 	flex-direction: column;
 	gap: 15px;
 
-	@media (max-width: 720px) {
+	/* @media (max-width: 720px) {
 		width: 6.25rem;
 		height: 15.625rem;
 		flex-wrap: wrap;
-	}
+	} */
 
 `
 

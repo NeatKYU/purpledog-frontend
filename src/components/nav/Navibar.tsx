@@ -23,8 +23,9 @@ export const Navibar = (props: NavibarProps) => {
 					<img src={logoImage} alt={'logo'}/>
 				</div>
 			}
-			{ menuList && menuList.map((item) => (
+			{ menuList && menuList.map((item,index) => (
 					<Menu
+						key={index}
 						active={item+'stories' === cartegory}
 						title={item} 
 						sw={'3.75rem'} 
