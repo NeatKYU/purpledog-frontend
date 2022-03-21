@@ -82,6 +82,9 @@ const LeftSide = styled.div`
 		overflow-x: scroll;
 		overflow-y: hidden;
 	}
+	@media (max-width: 376px) {
+		width: 23.4375rem;
+	}
 `
 
 const RightSide = styled.div`
@@ -95,5 +98,8 @@ const RightSide = styled.div`
 	@media (max-width: 720px) {
 		width: 100%;
 		height: auto;
+	}
+	@media (max-width: 376px) {
+		width: 23.4375rem;
 	}
 `

@@ -43,6 +43,7 @@ export const ItemDetail = (props: ItemDetailProps) => {
 }
 
 const Container = styled.div`
+	min-width: 20rem;
 	width: 25rem;
 	min-height: 31.25rem;
 	height: auto;

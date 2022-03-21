@@ -27,7 +27,7 @@ export const Navibar = (props: NavibarProps) => {
 					<Menu
 						active={item+'stories' === cartegory}
 						title={item} 
-						sw={'60px'} 
+						sw={'3.75rem'} 
 						onClick={() => setCartergory(item+'stories')}
 					/>
 				))
@@ -48,7 +48,7 @@ const Container = styled.div`
 
 	.logo {
 		width: 3.75rem;
-		height: 100%;
+		height: 3.75rem;
 		display: flex;
 		align-items: stretch;
 		margin-right: 15px;
@@ -56,5 +56,8 @@ const Container = styled.div`
 
 	@media (max-width: 1000px) {
 		width: 100%;
+	}
+	@media (max-width: 376px) {
+		width: 23.4375rem;
 	}
 `
