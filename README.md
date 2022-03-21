@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# 설명
+퍼플독 프론트엔드 과제 <br/>
+hacker news API를 이용해서 등록되어 있는 게시글을 조회하는 사이트 입니다. <br/>
+컴포넌트 재사용성을 위해 최대한 잘게 쪼갰으며 api data는 최상위 계층에서 뿌려주는 형식으로 구현하였습니다. <br/>
+(data는 ListPage에서 fetching을 통해 값을 구하고 하위컴포넌트에 뿌려주었습니다.) <br/>
+확장성을 위해 반응형으로 구현하였습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 실행방법
+환경변수 파일이 .env파일이 없기때문에 api주소는 fetcher.ts파일을 참고하셔서 넣으시면 됩니다.
+```
+git clone https://github.com/NeatKYU/purpledog-frontend.git
+npm install
+npm run start
+```
 
-In the project directory, you can run:
+## 배포 링크
+https://purpledog-frontend.vercel.app/
 
-### `yarn start`
+## 파일구조
+```bash
+src/
+├── App.test.tsx
+├── App.tsx
+├── GlobalStyle.jsx
+├── assets
+│   ├── close.png
+│   └── purpledog.png
+├── atom
+│   ├── detailAtom.ts
+│   └── listAtom.ts
+├── components
+│   ├── common
+│   │   ├── CloseButton.tsx
+│   │   └── Loading.tsx
+│   ├── item
+│   │   ├── Item.tsx
+│   │   ├── ItemDetail.tsx
+│   │   └── ItemList.tsx
+│   └── nav
+│       ├── Menu.tsx
+│       └── Navibar.tsx
+├── data
+│   └── menuList.ts
+├── hooks
+│   ├── useDetail.tsx
+│   └── useList.tsx
+├── index.tsx
+├── model
+│   └── detail.model.ts
+├── pages
+│   └── ListPage.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+├── setupTests.ts
+└── util
+    └── fetcher.tsx
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
